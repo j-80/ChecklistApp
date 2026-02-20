@@ -2,7 +2,7 @@
   "name": "FlightCheck",
   "short_name": "FlightCheck",
   "description": "B737 & A320 Cockpit Checklists",
-  "start_url": "/ChecklistApp/FlightCheck.html",
+  "start_url": "/ChecklistApp/index.html",
   "scope": "/ChecklistApp/",
   "display": "standalone",
   "orientation": "portrait",
