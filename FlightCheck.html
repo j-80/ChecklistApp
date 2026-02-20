@@ -543,7 +543,7 @@ html.dark {
         <span class="corner tr"></span>
         <span class="corner bl"></span>
         <span class="corner br"></span>
-        <div class="ac-icon">🛫</div>
+        <div class="ac-icon"><img src="boeing.png" alt="" width="60" height="49"></div>
         <div class="ac-info">
           <div class="ac-type">B737</div>
           <div class="ac-name">BOEING 737 · NORMAL PROCEDURES</div>
@@ -556,7 +556,7 @@ html.dark {
         <span class="corner tr"></span>
         <span class="corner bl"></span>
         <span class="corner br"></span>
-        <div class="ac-icon">🛩</div>
+        <div class="ac-icon"><img src="airbus.png" alt="" width="60" height="49"></div>
         <div class="ac-info">
           <div class="ac-type">A320</div>
           <div class="ac-name">AIRBUS A320 · NORMAL PROCEDURES</div>
@@ -612,79 +612,72 @@ const CHECKLISTS = {
         items: [
           { action: 'OXYGEN', value: '100%, NORMAL' },
           { action: 'NAVIGATION TRANSFER SWITCH', value: 'NORMAL' },
-          { action: 'AIR DATA SWITCHES', value: 'NORMAL' },
-          { action: 'ALTIMETERS', value: 'SET, QNH ____' },
-          { action: 'FUEL QUANTITY', value: 'CHECKED ____' },
-          { action: 'PARKING BRAKE', value: 'SET' },
-          { action: 'FLIGHT CONTROLS', value: 'FREE & CORRECT' },
-          { action: 'FLAPS', value: 'SET ____' },
-          { action: 'FUEL PANEL', value: 'SET' },
+          { action: 'YAW DAMPER', value: 'ON' },
+          { action: 'EMERGENCY EXIT LIGHTS', value: 'ARMED' },
+          { action: 'WINDOWS HEAT', value: 'ON' },
           { action: 'PRESSURISATION', value: 'AUTO' },
+          { action: 'FLIGHT INSTRUMENTS', value: 'HDG___, ALT___' },
+          { action: 'PARKING BRAKE', value: 'SET' },
+          { action: 'ENG START LEVERS', value: 'CUTOFF' },
         ]
       },
       {
         id: 'before_start',
         name: 'BEFORE START',
         items: [
-          { action: 'FUEL QUANTITY', value: 'CHECKED ____' },
+          { action: 'FLIGHT DECK DOOR', value: 'CLOSED & LOCKED' },
+          { action: 'FUEL', value: '___LBS/KGS, PUMPS ON' },
           { action: 'PASSENGER SIGNS', value: 'ON' },
           { action: 'WINDOWS', value: 'CLOSED & LOCKED' },
-          { action: 'FLIGHT DECK DOOR', value: 'CLOSED & LOCKED' },
-          { action: 'TRANSPONDER', value: 'TA/RA' },
-          { action: 'ANTI-COLLISION LIGHT', value: 'ON' },
-          { action: 'PACKS', value: 'SET' },
-          { action: 'HYDRAULIC PANEL', value: 'SET' },
-          { action: 'TRIM', value: 'SET ____' },
+          { action: 'MCP', value: 'V2___, HDG___, ALT___' },
+          { action: 'TAKEOFF SPEEDS', value: 'V1___, V2___, VR___' },
+          { action: 'CDU PREFLIGHT', value: 'COMPLETED' },
           { action: 'RUDDER & AILERON TRIM', value: 'ZERO' },
-          { action: 'START LEVERS', value: 'CUTOFF' },
-          { action: 'RECALL', value: 'CHECKED' },
+          { action: 'TAXI AND TAKEOFF BRIEFING', value: 'COMPLETED' },
+          { action: 'ANTI-COLLISION LIGHT', value: 'ON' },
         ]
       },
       {
-        id: 'after_start',
-        name: 'AFTER START',
+        id: 'before_taxi',
+        name: 'BEFORE TAXI',
         items: [
-          { action: 'ANTI-ICE', value: 'AS REQUIRED' },
-          { action: 'ISOLATION VALVE', value: 'OPEN' },
-          { action: 'APU BLEED', value: 'OFF (if APU used)' },
-          { action: 'GROUND EQUIPMENT', value: 'CLEAR' },
           { action: 'GENERATORS', value: 'ON' },
-        ]
-      },
-      {
-        id: 'taxi',
-        name: 'TAXI',
-        items: [
-          { action: 'FLIGHT CONTROLS', value: 'FREE & CORRECT' },
-          { action: 'INSTRUMENTS', value: 'CHECKED' },
-          { action: 'FLAPS', value: 'SET & GREEN LIGHT' },
-          { action: 'STABILIZER TRIM', value: 'SET ____' },
-          { action: 'TAKEOFF BRIEFING', value: 'COMPLETE' },
+          { action: 'PROBEHEAT', value: 'ON' },
+          { action: 'ANTI-ICE', value: '___' },
+          { action: 'ISOLATION VALVE', value: 'AUTO / CLOSED' },
+          { action: 'ENG START SWITCHES', value: 'CONTINUOUS' },
+          { action: 'PRESSURIZATION', value: 'PACKS ON, FLT, AUTO' },
+          { action: 'AUTOTHROTTLE', value: 'ARMED' },
+          { action: 'RECALL', value: 'CHECKED' },
+          { action: 'AUTOBRAKE', value: 'RTO' },
+          { action: 'FLIGHT CONTROLS', value: 'CHECKED' },
+          { action: 'GROUND EQUIPMENT', value: 'CLEARED, HAND SIGNAL' },
+          { action: 'USED FUEL', value: 'RESET' },
         ]
       },
       {
         id: 'before_takeoff',
         name: 'BEFORE TAKEOFF',
         items: [
-          { action: 'CABIN CREW', value: 'ADVISED' },
-          { action: 'TRANSPONDER', value: 'TA/RA' },
+          { action: 'FLAPS', value: '___, GREEN LIGHT' },
+          { action: 'STABILIZER', value: '___UNITS' },
           { action: 'PACKS', value: 'AS REQUIRED' },
-          { action: 'LIGHTS', value: 'AS REQUIRED' },
-          { action: 'PITOT HEAT', value: 'ON' },
-          { action: 'AUTO BRAKE', value: 'RTO' },
-          { action: 'ENGINE START SWITCHES', value: 'CONTINUOUS' },
+          { action: 'TRANSPONDER', value: 'TA/RA' },
+          { action: 'CABIN CREW', value: 'READY' },
+          { action: 'USED FUEL', value: 'RESET' },
+          { action: 'TO CONFIG', value: 'CHECKED' },
         ]
       },
       {
         id: 'after_takeoff',
         name: 'AFTER TAKEOFF / CLIMB',
         items: [
+          { action: 'ENGINE BLEEDS', value: 'ON' },
+          { action: 'PACKS', value: 'AUTO' },
           { action: 'LANDING GEAR', value: 'UP & OFF' },
           { action: 'FLAPS', value: 'UP, NO LIGHTS' },
-          { action: 'PACKS', value: 'ON' },
-          { action: 'ENGINE START SWITCHES', value: 'OFF' },
-          { action: 'ALTIMETER', value: 'SET, QNH ____' },
-          { action: 'ANTI-ICE', value: 'AS REQUIRED' },
+          { action: 'AUTOBRAKE', value: 'OFF' },
+          { action: 'ALTIMETER', value: 'STANDART' },
         ]
       },
       {
@@ -703,43 +696,53 @@ const CHECKLISTS = {
         id: 'approach',
         name: 'APPROACH',
         items: [
-          { action: 'FUEL QUANTITY', value: 'CHECKED' },
-          { action: 'PRESSURIZATION', value: 'AUTO / CHECKED' },
-          { action: 'SEAT BELT SIGN', value: 'ON' },
-          { action: 'FLAPS', value: 'AS REQUIRED' },
-          { action: 'SPEEDBRAKES', value: 'ARMED' },
-          { action: 'LANDING LIGHTS', value: 'ON' },
+          { action: 'ALTIMETER', value: '___' },
         ]
       },
       {
         id: 'landing',
         name: 'LANDING',
         items: [
-          { action: 'SPEEDBRAKES', value: 'ARMED' },
+          { action: 'ENGINE START SWITCHES', value: 'CONT' },
+          { action: 'SPEEDBRAKE', value: 'ARMED' },
           { action: 'LANDING GEAR', value: 'DOWN, 3 GREEN' },
-          { action: 'FLAPS', value: 'SET ____' },
-          { action: 'AUTOBRAKE', value: 'AS REQUIRED' },
+          { action: 'FLAPS', value: 'SET ___, GREEN LIGHT' },
           { action: 'GO-AROUND ALTITUDE', value: 'SET' },
+        ]
+      },
+      {
+        id: 'after_landing',
+        name: 'AFTER LANDING',
+        items: [
+          { action: 'TRANSPONDER', value: 'STBY' },
+          { action: 'WEATHER RADAR', value: 'OFF' },
         ]
       },
       {
         id: 'shutdown',
         name: 'SHUTDOWN',
         items: [
-          { action: 'ANTI-COLLISION LIGHT', value: 'OFF (engines stopped)' },
-          { action: 'FUEL CONTROL SWITCHES', value: 'CUTOFF' },
+          { action: 'FUEL PUMPS', value: 'OFF' },
+          { action: 'PROBEHEAT', value: 'OFF' },
           { action: 'HYDRAULIC PANEL', value: 'SET' },
-          { action: 'SEAT BELT SIGN', value: 'OFF' },
-          { action: 'WINDOW HEAT', value: 'OFF' },
-          { action: 'PROBE HEAT', value: 'OFF' },
+          { action: 'FLAPS', value: 'UP' },
+          { action: 'PARKING BRAKE', value: 'RELEASED / SET TO PARK' },
+          { action: 'ENGINE START LEVERS', value: 'CUTOFF' },
+        ]
+      },
+      {
+        id: 'secure',
+        name: 'SECURE',
+        items: [
+          { action: 'IRSs', value: 'OFF' },
+          { action: 'EMERGENCY LIGHTS', value: 'OFF' },
+          { action: 'WINDOWS HEAT', value: 'OFF' },
           { action: 'PACKS', value: 'OFF' },
-          { action: 'TRANSPONDER', value: 'STBY' },
-          { action: 'APU / GPU', value: 'CONNECTED' },
-          { action: 'PARKING BRAKE', value: 'SET' },
         ]
       },
     ]
   },
+
   A320: {
     label: 'A320',
     color: '#ff6b35',
@@ -748,136 +751,98 @@ const CHECKLISTS = {
         id: 'cockpit_prep',
         name: 'COCKPIT PREPARATION',
         items: [
-          { action: 'OXYGEN MASK STOWAGE', value: 'CHECKED' },
-          { action: 'OXYGEN PRESSURE', value: 'CHECKED (>1000 PSI)' },
-          { action: 'GEAR PINS', value: 'REMOVED & STOWED' },
-          { action: 'PARKING BRAKE', value: 'SET' },
-          { action: 'FIRE TEST', value: 'COMPLETE' },
-          { action: 'ADIRS ALIGNMENT', value: 'NAV / ALIGNED' },
-          { action: 'BARO REFERENCE', value: 'SET ____' },
-          { action: 'MCDU SETUP', value: 'COMPLETE' },
-          { action: 'FUEL QUANTITY', value: 'CHECKED ____' },
-          { action: 'FLIGHT CONTROLS', value: 'CHECKED' },
+          { action: 'GEAR PINS & COVERS', value: 'REMOVED' },
+          { action: 'FUEL QUANTITY', value: '___KG/LB' },
+          { action: 'SEAT BELTS', value: 'ON' },
+          { action: 'ADIRS', value: 'NAV' },
+          { action: 'BARO REF', value: '___(BOTH)' },
         ]
       },
       {
         id: 'before_start',
         name: 'BEFORE START',
         items: [
-          { action: 'FUEL QUANTITY', value: 'CHECKED ____' },
-          { action: 'SIGNS', value: 'ON' },
-          { action: 'ADIRS', value: 'NAV' },
-          { action: 'CREW OXY PRESSURE', value: 'NORMAL' },
-          { action: 'DOORS & SLIDES', value: 'ARMED' },
+          { action: 'PARKING BRAKE', value: '___' },
+          { action: 'T.O. SPEEDS & THRUST', value: '___(BOTH' },
+          { action: 'WINDOWS', value: 'CLOSED (BOTH)' },
           { action: 'BEACON', value: 'ON' },
-          { action: 'THRUST LEVERS', value: 'IDLE' },
-          { action: 'PARKING BRAKE', value: 'SET' },
-          { action: 'MCDU TAKEOFF DATA', value: 'SET' },
-          { action: 'BARO REFERENCE', value: 'SET ____' },
-          { action: 'WINDOWS', value: 'CLOSED & LOCKED' },
         ]
       },
       {
         id: 'after_start',
         name: 'AFTER START',
         items: [
-          { action: 'ANTI-ICE', value: 'AS REQUIRED' },
+          { action: 'ANTI-ICE', value: '___' },
           { action: 'ECAM STATUS', value: 'CHECKED' },
-          { action: 'PITCH TRIM', value: 'SET ____°' },
-          { action: 'RUDDER TRIM', value: 'ZERO' },
-          { action: 'APU BLEED', value: 'OFF / AS REQUIRED' },
-          { action: 'GROUND SPOILERS', value: 'ARMED' },
+          { action: 'PITCH TRIM', value: '___%' },
+          { action: 'RUDDER TRIM', value: 'NEUTRAL' },
         ]
       },
       {
         id: 'taxi',
         name: 'TAXI',
         items: [
-          { action: 'FLIGHT CONTROLS', value: 'CHECKED' },
-          { action: 'NOSE WHEEL STEERING', value: 'CHECKED' },
-          { action: 'BRAKES', value: 'CHECKED' },
-          { action: 'FLAP SETTING', value: 'SET ____' },
-          { action: 'V1 / VR / V2', value: 'CONFIRMED' },
-          { action: 'TAKEOFF BRIEFING', value: 'COMPLETE' },
+          { action: 'FLIGHT CONTROLS', value: 'CHECKED (BOTH)' },
+          { action: 'FLAPS SETTING', value: 'CONF___(BOTH)' },
+          { action: 'RADAR & PWS', value: 'ON & AUTO' },
+          { action: 'ENG MODE SEL', value: '___' },
+          { action: 'ECAM MEMO', value: 'T.O NO BLUE' },
         ]
       },
       {
-        id: 'before_takeoff',
-        name: 'BEFORE TAKEOFF',
+        id: 'lineup',
+        name: 'LINEUP',
         items: [
-          { action: 'CABIN CREW', value: 'ADVISED' },
-          { action: 'PACKS', value: 'AS REQUIRED' },
-          { action: 'ANTI-ICE', value: 'AS REQUIRED' },
-          { action: 'TRANSPONDER', value: 'TA/RA' },
-          { action: 'FMGC FLIGHT PLAN', value: 'CONFIRMED' },
-          { action: 'ECAM MEMO', value: 'T.O. NO BLUE' },
-          { action: 'AUTOTHRUST', value: 'ARMED' },
+          { action: 'T.O RWY', value: '___(BOTH)' },
           { action: 'TCAS', value: 'TA/RA' },
-          { action: 'LIGHTS', value: 'LANDING / STROBE ON' },
-        ]
-      },
-      {
-        id: 'after_takeoff',
-        name: 'AFTER TAKEOFF / CLIMB',
-        items: [
-          { action: 'LANDING GEAR', value: 'UP' },
-          { action: 'FLAPS', value: 'RETRACTED' },
-          { action: 'PACKS', value: 'ON' },
-          { action: 'BARO REF', value: 'SET STD > TA' },
-          { action: 'ECAM MEMO', value: 'CLB NO BLUE' },
-          { action: 'APU', value: 'OFF' },
-        ]
-      },
-      {
-        id: 'descent',
-        name: 'DESCENT',
-        items: [
-          { action: 'BARO REF', value: 'SET QNH < TL' },
-          { action: 'LANDING ELEVATION', value: 'SET' },
-          { action: 'APPROACH BRIEFING', value: 'COMPLETE' },
-          { action: 'ECAM STATUS', value: 'CHECKED' },
-          { action: 'ANTI-ICE', value: 'AS REQUIRED' },
-          { action: 'CABIN SIGNS', value: 'ON BELOW FL100' },
+          { action: 'PACKS 1 & 2', value: 'AS REQUIRED' },
         ]
       },
       {
         id: 'approach',
         name: 'APPROACH',
         items: [
-          { action: 'BARO REF', value: 'QNH SET' },
-          { action: 'MINIMUM', value: 'SET ____' },
-          { action: 'AUTO PILOT / FD', value: 'AS REQUIRED' },
-          { action: 'ECAM MEMO', value: 'APP NO BLUE' },
-          { action: 'FLAPS', value: 'CONFIG 1+F' },
-          { action: 'SEAT BELT SIGN', value: 'ON' },
+          { action: 'BARO REF', value: '___SET (BOTH)' },
+          { action: 'SEAT BELTS', value: 'ON' },
+          { action: 'MINIMUM', value: '___' },
+          { action: 'AUTOBRAKE', value: '___' },
+          { action: 'ENG MODE SEL', value: '___' },
         ]
       },
       {
         id: 'landing',
         name: 'LANDING',
         items: [
-          { action: 'AUTO BRAKE', value: 'AS REQUIRED' },
-          { action: 'GROUND SPOILERS', value: 'ARMED' },
-          { action: 'FLAPS', value: 'FULL / CONFIG ____' },
-          { action: 'LANDING GEAR', value: 'DOWN, 3 GREEN' },
+          { action: 'GO-AROUND ALT', value: '___FT SET' },
+          { action: 'CABIN CREW', value: 'ADVISED' },
           { action: 'ECAM MEMO', value: 'LDG NO BLUE' },
-          { action: 'CABIN', value: 'SECURE CONFIRMED' },
         ]
       },
       {
-        id: 'shutdown',
-        name: 'SHUTDOWN',
+        id: 'after-landing',
+        name: 'AFTER-LANDING',
         items: [
-          { action: 'PARKING BRAKE', value: 'SET' },
-          { action: 'ENGINES', value: 'MODE NORM / MASTER OFF' },
-          { action: 'SEAT BELT SIGNS', value: 'OFF' },
-          { action: 'ANTI-ICE', value: 'OFF' },
-          { action: 'SLIDES', value: 'DISARMED' },
-          { action: 'BEACON', value: 'OFF' },
-          { action: 'APU / GPU', value: 'CONNECTED' },
-          { action: 'COCKPIT LIGHTS', value: 'AS REQUIRED' },
-          { action: 'BARO', value: 'QNH SET' },
-          { action: 'PARKING CHECKS', value: 'COMPLETE' },
+          { action: 'RADAR & PWS', value: 'OFF' },
+        ]
+      },
+      {
+        id: 'parking',
+        name: 'PARKING',
+        items: [
+          { action: 'PARK BRK or CHOCKS', value: 'SET' },
+          { action: 'ENGINES', value: 'OFF' },
+          { action: 'WING LIGHTS', value: 'OFF' },
+          { action: 'FUEL PUMPS', value: 'OFF' },
+        ]
+      },
+      {
+        id: 'securing the aircraft',
+        name: 'SECURING THE AIRCRAFT',
+        items: [
+          { action: 'OXYGEN', value: 'OFF' },
+          { action: 'EMER EXIT LT', value: 'OFF' },
+          { action: 'EFBs', value: 'OFF' },
+          { action: 'BATTERIES', value: 'OFF' },
         ]
       },
     ]
