@@ -1076,6 +1076,9 @@ function updateClFooter(cl) {
   const nextBtn = document.getElementById('next-checklist-btn');
   if (nextBtn) {
     nextBtn.classList.toggle('cl-btn-disabled', !allDone);
+    if (allDone) {
+      setTimeout(() => nextBtn.scrollIntoView({ behavior: 'smooth', block: 'end' }), 50);
+    }
   }
 }
 
