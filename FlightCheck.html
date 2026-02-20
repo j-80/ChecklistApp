@@ -482,10 +482,14 @@ body {
   margin-bottom: 56px;
 }
 
-.cl-back-btn {
-  display: block;
-  width: calc(100% - 28px);
+.cl-btn-row {
+  display: flex;
+  gap: 10px;
   margin: 8px 14px 16px;
+}
+
+.cl-back-btn, .cl-next-btn {
+  flex: 1;
   padding: 18px;
   background: none;
   border: 1.5px solid var(--border-dark);
@@ -499,8 +503,18 @@ body {
   text-align: center;
 }
 
-.cl-back-btn:active {
+.cl-back-btn:active, .cl-next-btn:active {
   background: var(--surface-2);
+}
+
+.cl-reset-color {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.cl-btn-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -988,11 +1002,42 @@ function renderChecklist() {
     list.appendChild(el);
   });
 
+  const checklists = CHECKLISTS[currentAC].checklists;
+  const clIndex = checklists.findIndex(c => c.id === currentCL);
+  const isLast = clIndex === checklists.length - 1;
+
+  const btnRow = document.createElement('div');
+  btnRow.className = 'cl-btn-row';
+
   const backBtn = document.createElement('button');
   backBtn.className = 'cl-back-btn';
-  backBtn.textContent = '◀  Back to Checklists';
-  backBtn.onclick = goMenu;
-  list.appendChild(backBtn);
+  if (clIndex === 0) {
+    backBtn.textContent = '◀  Back';
+    backBtn.onclick = goMenu;
+  } else {
+    const prevCl = checklists[clIndex - 1];
+    backBtn.textContent = '◀  ' + prevCl.name;
+    backBtn.onclick = function() { openChecklist(prevCl.id); };
+  }
+  btnRow.appendChild(backBtn);
+
+  if (isLast) {
+    const resetBtn = document.createElement('button');
+    resetBtn.className = 'cl-next-btn cl-reset-color';
+    resetBtn.textContent = '⟳  Reset All';
+    resetBtn.onclick = function() { resetAll(); };
+    btnRow.appendChild(resetBtn);
+  } else {
+    const nextBtn = document.createElement('button');
+    const nextCl = checklists[clIndex + 1];
+    nextBtn.id = 'next-checklist-btn';
+    nextBtn.className = 'cl-next-btn cl-btn-disabled';
+    nextBtn.textContent = nextCl.name + '  ▶';
+    nextBtn.onclick = function() { if (!nextBtn.classList.contains('cl-btn-disabled')) openChecklist(nextCl.id); };
+    btnRow.appendChild(nextBtn);
+  }
+
+  list.appendChild(btnRow);
 
   updateClFooter(cl);
 }
@@ -1027,6 +1072,11 @@ function updateClFooter(cl) {
 
   const banner = document.getElementById('all-done-banner');
   banner.classList.toggle('show', allDone);
+
+  const nextBtn = document.getElementById('next-checklist-btn');
+  if (nextBtn) {
+    nextBtn.classList.toggle('cl-btn-disabled', !allDone);
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════
