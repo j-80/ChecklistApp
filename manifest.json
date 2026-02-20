@@ -2,7 +2,7 @@
   "name": "FlightCheck",
   "short_name": "FlightCheck",
   "description": "B737 & A320 Cockpit Checklists",
-  "start_url": "/ChecklistApp/index.html",
+  "start_url": "https://j-80.github.io/ChecklistApp/index.html",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#ffffff",
