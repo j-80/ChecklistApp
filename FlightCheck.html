@@ -482,6 +482,27 @@ body {
   margin-bottom: 56px;
 }
 
+.cl-back-btn {
+  display: block;
+  width: calc(100% - 28px);
+  margin: 8px 14px 16px;
+  padding: 18px;
+  background: none;
+  border: 1.5px solid var(--border-dark);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-align: center;
+}
+
+.cl-back-btn:active {
+  background: var(--surface-2);
+}
+
 /* ═══════════════════════════════════════════════════
    THEME TOGGLE BUTTON (home screen)
 ═══════════════════════════════════════════════════ */
@@ -966,6 +987,12 @@ function renderChecklist() {
     `;
     list.appendChild(el);
   });
+
+  const backBtn = document.createElement('button');
+  backBtn.className = 'cl-back-btn';
+  backBtn.textContent = '◀  Back to Checklists';
+  backBtn.onclick = goMenu;
+  list.appendChild(backBtn);
 
   updateClFooter(cl);
 }
