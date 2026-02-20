@@ -3,7 +3,7 @@
 **A clean, offline-capable cockpit checklist app for pilots — built as a single HTML file, installable on any Android tablet.**
 
 ![FlightCheck Banner](https://img.shields.io/badge/Aircraft-B737%20%7C%20A320-1a6fe8?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0yMS4xMyAxNC4wNmwtMS40MS0xLjQxLTkuMTkgOS4xOS0yLjgzLTIuODMgOS4xOS05LjE5LTEuNDEtMS40MS05LjE5IDkuMTktMi44Mi0yLjgzIDkuMTktOS4xOS0xLjQxLTEuNDEtOS4xOSA5LjE5TDAgMTJsNC4yNCA0LjI0IDIuODMtMi44MyAyLjgzIDIuODMtMi44MyAyLjgzTDEyIDI0bDE0LjE0LTE0LjE0eiIvPjwvc3ZnPg==)
-![Platform](https://img.shields.io/badge/Platform-Android%20Tablet-green?style=for-the-badge)
+![Platform](https://img.shields.io/badge/Platform-Android/iOS%20-green?style=for-the-badge)
 ![Offline](https://img.shields.io/badge/Works-Offline-orange?style=for-the-badge)
 
 ---
